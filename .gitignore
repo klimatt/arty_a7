@@ -1,0 +1,35 @@
+# Vivado generated files
+*.log
+*.jou
+*.dcp
+*.bit
+*.bin
+*.xsa
+*.rpt
+*.pb
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.runs/
+*.gen/
+*.sdk/
+*.data/
+*.str
+*.zip
+*.tar.gz
+.Xil/
+
+# Project-specific directories
+<project_name>.data/
+<project_name>.runs/
+<project_name>.sim/
+<project_name>.cache/
+
+# IP generated outputs
+<ip_name>/
+
+# Temporary and backup files
+*~
+*.bak
+.DS_Store
