@@ -29,6 +29,8 @@ A playground with various modules, written in SystemVerilog, with a project setu
    brew install verible
    ```
 4) Install the [Verilog/SystemVerilog Tools](https://marketplace.visualstudio.com/items?itemName=AndrewNolte.vscode-system-verilog) plugin for VS Code and specify paths to Slang and Verible Verilog LS.
+<img width="490" alt="Screenshot 2025-03-11 at 22 50 42" src="https://github.com/user-attachments/assets/d51137a8-2f04-45b1-82f4-b4f29875591b" />
+<img width="475" alt="Screenshot 2025-03-11 at 22 51 50" src="https://github.com/user-attachments/assets/18a74d79-0bcc-41cb-88eb-114fccf2467b" />
 
 ## Folder Structure
 
