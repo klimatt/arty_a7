@@ -1,7 +1,6 @@
 # Vivado generated files
 *.log
 *.jou
-*.dcp
 *.bit
 *.bin
 *.xsa
