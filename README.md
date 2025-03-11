@@ -12,7 +12,7 @@ A playground with various modules, written in SystemVerilog, with a project setu
    ```bash
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
-2) Install Verilator:
+2) Install [Verilator](https://github.com/verilator/verilator):
    ```bash
    brew install verilator
    ```
