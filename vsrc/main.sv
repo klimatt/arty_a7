@@ -1,10 +1,9 @@
 
 module main(
     input logic clk,
-    output logic led,
-    output logic [24:0] cnt
+    output logic led
 );
 
-    blinky blk(clk, led, cnt);
+    blinky blk(clk, led);
 
 endmodule

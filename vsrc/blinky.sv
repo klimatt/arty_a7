@@ -1,13 +1,10 @@
 
 module blinky(
      input logic clk,
-     output logic led,
-     output logic [24:0] cnt
+     output logic led
 );
 
      logic [24:0] counter = 2;
-
-     assign cnt = counter;
 
      assign led = counter[1];
 
