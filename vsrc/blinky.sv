@@ -1,14 +1,14 @@
 
 module blinky(
-     input logic clk,
+     input logic i_clk,
      output logic led
 );
 
-     logic [24:0] counter = 2;
+     logic [24:0] counter = 0;
 
-     assign led = counter[1];
+     assign led = counter[22];
 
-     always_ff @( posedge clk ) begin
+     always_ff @( posedge i_clk ) begin
           counter <= counter + 1;
      end
 
