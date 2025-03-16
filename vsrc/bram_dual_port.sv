@@ -23,9 +23,10 @@ module bram_dual_port #(
     parameter ADDR_WIDTH = ADDR_WIDTH,
     parameter MEM_DEPTH  = MEM_DEPTH
 ) (
-    input logic      i_clk,
-
+    input logic      i_clk_a,
     bram_port_if.slave port_a,
+    
+    input logic     i_clk_b,
     bram_port_if.slave port_b
 );
 
@@ -34,7 +35,7 @@ module bram_dual_port #(
 
     initial begin
         for (int i = 0; i < MEM_DEPTH; i++) begin
-            mem[i] = 0;
+            mem[i] = 32'hDEAD_BEEF;
         end
     end
 
@@ -42,22 +43,24 @@ module bram_dual_port #(
     logic port_a_priority = 0;
 
     always_comb begin
-        conflict_detected = (port_a.we && port_b.we && port_a.addr == port_b.addr);
+        conflict_detected = (port_a.we && port_b.we && port_a.addr == port_b.addr); //????  port_a.addr == port_b.addr
         port_a_priority = conflict_detected;  // Prioritize Port A over Port B
     end
 
-   always_ff @(posedge i_clk) begin
+   always_ff @(posedge i_clk_a) begin
         if (port_a.we) begin
             mem[port_a.addr] <= port_a.din;
         end
 
+        port_a.dout <= mem[port_a.addr];
+    end
+
+    always_ff @(posedge i_clk_b) begin
         if (port_b.we && !port_a_priority) begin
             mem[port_b.addr] <= port_b.din;
         end
 
-        port_a.dout <= mem[port_a.addr];
-
-        port_b.dout <= mem[port_b.addr];
+         port_b.dout <= mem[port_b.addr];
     end
 
 endmodule
