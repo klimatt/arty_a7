@@ -9,7 +9,7 @@ module main(
     input logic psram_chip_enable,
     input logic psram_output_enable,
     input logic psram_write_enable,
-    input logic [25-1:0] psram_address,
+    input logic [16-1:0] psram_address,
     inout logic [16-1:0] psram_data
 );
 
@@ -38,7 +38,7 @@ module main(
         .i_clk_a(clk),
         .port_a(port_a.slave),  // Connect to BRAM as slave
 
-        .i_clk_b(clk_b),
+        .i_clk_b(psram_i_clk),
         .port_b(port_b.slave)   // Connect to BRAM as slave
     );
 
@@ -53,7 +53,7 @@ module main(
 
     psram_slave_contoller #(
         .PSRAM_DATA_WIDTH(16),
-        .PSRAM_ADDR_WIDTH(25),
+        .PSRAM_ADDR_WIDTH(16),
         .MEM_DATA_WIDTH(DATA_WIDTH),
         .MEM_ADDR_WIDTH(ADDR_WIDTH)
     ) psram_inst (
@@ -70,7 +70,7 @@ module main(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH)
     ) blinky_inst(
-        .i_clk(clk_b),
+        .i_clk(clk),
         .led(led),
         .bram_port(port_b.master)
     );

@@ -2,7 +2,7 @@
 /// PSRAM Slave Controller Parrallel IMPLEMENTATION
 module psram_slave_contoller #(
     parameter PSRAM_DATA_WIDTH = 16,
-    parameter PSRAM_ADDR_WIDTH = 25,
+    parameter PSRAM_ADDR_WIDTH = 16,
     parameter MEM_DATA_WIDTH = 32,
     parameter MEM_ADDR_WIDTH = 10
 ) (
